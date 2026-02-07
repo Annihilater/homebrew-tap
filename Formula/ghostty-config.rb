@@ -9,28 +9,32 @@ class GhosttyConfig < Formula
     (share/"ghostty-config").install "config"
     (share/"ghostty-config").install "shaders"
     (share/"ghostty-config").install "themes"
+    (share/"ghostty-config").install "install.sh"
   end
 
   def post_install
-    ghostty_dir = Pathname.new("#{Dir.home}/.config/ghostty")
-
-    # 备份已有配置
-    if ghostty_dir.exist?
-      backup = Pathname.new("#{Dir.home}/.config/ghostty.bak.#{Time.now.strftime("%Y%m%d%H%M%S")}")
-      ghostty_dir.rename(backup)
-      opoo "已有配置已备份到 #{backup}"
-    end
-
-    ghostty_dir.mkpath
-    cp share/"ghostty-config/config", ghostty_dir/"config"
-    cp_r share/"ghostty-config/shaders", ghostty_dir/"shaders"
-    cp_r share/"ghostty-config/themes", ghostty_dir/"themes"
+    src = share/"ghostty-config"
+    system "bash", "-c", <<~SCRIPT
+      set -euo pipefail
+      CONFIG_DIR="${HOME}/.config/ghostty"
+      if [ -e "${CONFIG_DIR}" ]; then
+        BACKUP="${CONFIG_DIR}.bak.$(date +%Y%m%d%H%M%S)"
+        mv "${CONFIG_DIR}" "${BACKUP}"
+      fi
+      mkdir -p "${CONFIG_DIR}"
+      cp "#{src}/config" "${CONFIG_DIR}/config"
+      cp -r "#{src}/shaders" "${CONFIG_DIR}/shaders"
+      cp -r "#{src}/themes" "${CONFIG_DIR}/themes"
+    SCRIPT
   end
 
   def caveats
     <<~EOS
       配置已安装到 ~/.config/ghostty/
       如果之前有配置，已备份为 ~/.config/ghostty.bak.<timestamp>
+
+      如果自动安装失败，可手动执行：
+        bash #{share}/ghostty-config/install.sh
 
       重启 Ghostty 或按 Cmd+Shift+R 重载配置。
     EOS
