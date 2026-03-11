@@ -1,30 +1,30 @@
 class Copilot2apiGo < Formula
   desc "GitHub Copilot token → OpenAI / Anthropic API proxy"
   homepage "https://github.com/Annihilater/copilot2api-go"
-  version "0.1.2"
+  version "0.1.3"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/Annihilater/copilot2api-go/releases/download/v0.1.2/copilot-go_v0.1.2_darwin_arm64.tar.gz"
-      sha256 "0a24b2d2debe8516651288bbebfad2c1b19e9cfa36721b17394dda895938ce65"
+      url "https://github.com/Annihilater/copilot2api-go/releases/download/v0.1.3/copilot-go_v0.1.3_darwin_arm64.tar.gz"
+      sha256 "ed7fbf7704b4c01fd8b251a6cb9c1b6e8c6e427f7838b8383cb5428b48fe7fcf"
     end
     on_intel do
-      url "https://github.com/Annihilater/copilot2api-go/releases/download/v0.1.2/copilot-go_v0.1.2_darwin_amd64.tar.gz"
-      sha256 "581237d55417eb7dea6f55524e263386cddd2c4a5d7c8e1c385b1ca7cc4ee73d"
+      url "https://github.com/Annihilater/copilot2api-go/releases/download/v0.1.3/copilot-go_v0.1.3_darwin_amd64.tar.gz"
+      sha256 "f681d43f7c35b884361997fd4a4278e837f4f69145ccccd359d04ad7afb7bfe9"
     end
   end
 
   on_linux do
     on_arm do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/Annihilater/copilot2api-go/releases/download/v0.1.2/copilot-go_v0.1.2_linux_arm64.tar.gz"
-        sha256 "268f16902684a39242403f632fcd2fd8ce146a5db615625c7c63e6840fe08eba"
+        url "https://github.com/Annihilater/copilot2api-go/releases/download/v0.1.3/copilot-go_v0.1.3_linux_arm64.tar.gz"
+        sha256 "e807237f42112636c621c28fcfd94f267166456379f56b8d30f658895fa6419e"
       end
     end
     on_intel do
-      url "https://github.com/Annihilater/copilot2api-go/releases/download/v0.1.2/copilot-go_v0.1.2_linux_amd64.tar.gz"
-      sha256 "d9d02abb13a896e19a6989195ec33e8ba4fbc5cea87129e713bd5c3db3b3e5fc"
+      url "https://github.com/Annihilater/copilot2api-go/releases/download/v0.1.3/copilot-go_v0.1.3_linux_amd64.tar.gz"
+      sha256 "985e1d3a54980d9d16897cb3058994c36b27d911ae12d4ec022a38210dfbb519"
     end
   end
 
