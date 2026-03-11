@@ -37,6 +37,36 @@ class Copilot2apiGo < Formula
     SH
   end
 
+  def caveats
+    <<~EOS
+      copilot2api-go converts your GitHub Copilot subscription into an
+      OpenAI / Anthropic compatible API proxy.
+
+      Default ports:
+        Web Console : http://localhost:37000
+        Proxy API   : http://localhost:34141
+
+      Quick start:
+        brew services start copilot2api-go
+        open http://localhost:37000
+
+      Service management:
+        brew services start   copilot2api-go   # start & enable at login
+        brew services stop    copilot2api-go   # stop
+        brew services restart copilot2api-go   # restart
+
+      Logs:
+        tail -f #{var}/log/copilot2api-go.log
+
+      Custom ports:
+        brew services stop copilot2api-go
+        copilot2api-go --web-port=8080 --proxy-port=9090
+
+      Full documentation:
+        https://github.com/Annihilater/copilot2api-go
+    EOS
+  end
+
   service do
     run [opt_bin/"copilot2api-go", "--web-port=37000", "--proxy-port=34141"]
     keep_alive true
