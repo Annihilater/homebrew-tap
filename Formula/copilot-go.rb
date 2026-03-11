@@ -1,30 +1,30 @@
 class CopilotGo < Formula
   desc "GitHub Copilot token → OpenAI / Anthropic API proxy"
   homepage "https://github.com/Annihilater/copilot2api-go"
-  version "0.1.0"
+  version "0.1.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/Annihilater/copilot2api-go/releases/download/v0.1.0/copilot-go_v0.1.0_darwin_arm64.tar.gz"
-      sha256 "1eeb7bad9e545f2d5cf0badb2360f8f7cb3fc5fd8093b08f6b967c773e2bbba6"
+      url "https://github.com/Annihilater/copilot2api-go/releases/download/v0.1.1/copilot-go_v0.1.1_darwin_arm64.tar.gz"
+      sha256 "95a54db08db1b3a032ee88b65f090f0a2edf7593aaaf79fbdcb8a1a4de9317a6"
     end
     on_intel do
-      url "https://github.com/Annihilater/copilot2api-go/releases/download/v0.1.0/copilot-go_v0.1.0_darwin_amd64.tar.gz"
-      sha256 "374cfedb6c807f6aac847e1434dccdfee24afd52a4e0e720ffda8de223c3801c"
+      url "https://github.com/Annihilater/copilot2api-go/releases/download/v0.1.1/copilot-go_v0.1.1_darwin_amd64.tar.gz"
+      sha256 "2a182e2f2bc41631207e1af9b906c4729f8da4cf9a4e96924a29aa0c8b597cfa"
     end
   end
 
   on_linux do
     on_arm do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/Annihilater/copilot2api-go/releases/download/v0.1.0/copilot-go_v0.1.0_linux_arm64.tar.gz"
-        sha256 "dc6b8daf5fb463c07475b7da617ca6a622abb89a3cb6cc5a4da77f4936f66d4c"
+        url "https://github.com/Annihilater/copilot2api-go/releases/download/v0.1.1/copilot-go_v0.1.1_linux_arm64.tar.gz"
+        sha256 "210aedefb9a788cef41119a218a38e02e02921afd786dc1c82910bda6c97193a"
       end
     end
     on_intel do
-      url "https://github.com/Annihilater/copilot2api-go/releases/download/v0.1.0/copilot-go_v0.1.0_linux_amd64.tar.gz"
-      sha256 "8ffb19a0998312c1460290bbe35c721ab0e30961479a8a5350295afeb01ed857"
+      url "https://github.com/Annihilater/copilot2api-go/releases/download/v0.1.1/copilot-go_v0.1.1_linux_amd64.tar.gz"
+      sha256 "a75de985a5b25c29e724e68444401254ace4e44c0786d64b316676b6117b9509"
     end
   end
 
