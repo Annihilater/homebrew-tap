@@ -1,4 +1,4 @@
-class CopilotGo < Formula
+class Copilot2apiGo < Formula
   desc "GitHub Copilot token → OpenAI / Anthropic API proxy"
   homepage "https://github.com/Annihilater/copilot2api-go"
   version "0.1.2"
@@ -31,23 +31,23 @@ class CopilotGo < Formula
   def install
     libexec.install "copilot-go"
     libexec.install "web"
-    (bin/"copilot-go").write <<~SH
+    (bin/"copilot2api-go").write <<~SH
       #!/bin/bash
       cd "#{libexec}" && exec "#{libexec}/copilot-go" "$@"
     SH
   end
 
   service do
-    run [opt_bin/"copilot-go", "--web-port=37000", "--proxy-port=34141"]
+    run [opt_bin/"copilot2api-go", "--web-port=37000", "--proxy-port=34141"]
     keep_alive true
     working_dir libexec
-    log_path var/"log/copilot-go.log"
-    error_log_path var/"log/copilot-go.log"
+    log_path var/"log/copilot2api-go.log"
+    error_log_path var/"log/copilot2api-go.log"
   end
 
   test do
     port = free_port
-    pid = fork { exec opt_bin/"copilot-go", "--web-port=#{port}", "--proxy-port=#{free_port}" }
+    pid = fork { exec opt_bin/"copilot2api-go", "--web-port=#{port}", "--proxy-port=#{free_port}" }
     sleep 1
     assert_match "200", shell_output("curl -s -o /dev/null -w '%{http_code}' http://localhost:#{port}/api/config")
   ensure

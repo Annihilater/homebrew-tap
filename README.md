@@ -14,15 +14,15 @@ brew install <formula>
 | Formula | Description |
 |---|---|
 | `ghostty-config` | Ghostty terminal configuration with shaders and themes |
-| `copilot-go` | GitHub Copilot token → OpenAI / Anthropic API proxy |
+| `copilot2api-go` | GitHub Copilot token → OpenAI / Anthropic API proxy |
 
-## copilot-go
+## copilot2api-go
 
 ```bash
-brew install Annihilater/tap/copilot-go
+brew install Annihilater/tap/copilot2api-go
 
 # 以后台服务方式启动（登录后自动恢复）
-brew services start copilot-go
+brew services start copilot2api-go
 ```
 
 - Web 控制台：http://localhost:37000
